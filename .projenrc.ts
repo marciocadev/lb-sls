@@ -7,7 +7,6 @@ const project = new cdk.JsiiProject({
   projenrcTs: true,
   repositoryUrl: 'https://github.com/marciocadev/lb-sls.git',
 
-  sampleCode: false,
   release: true,
   publishTasks: true,
   deps: ['projen'],

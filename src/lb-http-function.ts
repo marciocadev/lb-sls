@@ -73,10 +73,10 @@ export class LBHttpFunction extends LBFunction {
       let vpcContent = [
         '  vpc:',
         '    securityGroupId:',
-        '      - ${cf:${self:provider.stage}}-network.LambdaSecurityGroup}',
+        '      - ${cf:${self:provider.stage}-network.LambdaSecurityGroup}',
         '    subnetIds:',
-        '      - ${cf:${self:provider.stage}}-network.PrivateSubnetA}',
-        '      - ${cf:${self:provider.stage}}-network.PrivateSubnetB}',
+        '      - ${cf:${self:provider.stage}-network.PrivateSubnetA}',
+        '      - ${cf:${self:provider.stage}-network.PrivateSubnetB}',
       ].join('\n');
       fileContent = fileContent.concat(vpcContent);
     }
