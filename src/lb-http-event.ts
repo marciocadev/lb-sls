@@ -1,8 +1,10 @@
+import { LBFunctionProps } from './lb-function';
+
 export enum LBHttpMethodType {
   GET, POST, PUT, DELETE, PATCH
 }
 
-export interface LBHttpEventProps {
+export interface LBHttpEventProps extends LBFunctionProps {
   readonly lbHttpMethodType: LBHttpMethodType;
   readonly httpPath: string;
 }

@@ -1,7 +1,6 @@
 import { existsSync } from 'fs';
 import { TypeScriptProject, TypeScriptProjectOptions } from 'projen/lib/typescript';
-import { LBHttpEventProps } from './lb-http-event';
-import { LBHttpFunction } from './lb-http-function';
+import { LBHttpFunction, LBHttpFunctionProps } from './lb-http-function';
 import { readmeFile } from './lb-readme';
 import { serverless } from './lb-serverless-yaml';
 import { vscodeSettings } from './lb-vscode';
@@ -40,8 +39,8 @@ export class LBSls extends TypeScriptProject {
     this.addDeps('@aws-lambda-powertools/logger');
   }
 
-  public httpfunction(name: string, event: LBHttpEventProps) {
-    const fnc = new LBHttpFunction({ name: name, event: event });
+  public httpfunction(props: LBHttpFunctionProps) {
+    const fnc = new LBHttpFunction(props);
     fnc.configYaml(this);
     fnc.sampleCode(this);
   }
