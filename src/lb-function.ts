@@ -17,7 +17,7 @@ export class LBFunction {
 
   appendFunctionToServerlessYaml() {
     const data = readFileSync('serverless.yml');
-    if (data.indexOf(`- \${file(${this.path}/config.yml)}`) < 0) {
+    if (data.indexOf(`- \${file(${this.path}/config.yml)}`) === -1) {
       return;
     }
     let initialData, middleData, finalData;
