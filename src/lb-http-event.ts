@@ -1,23 +1,19 @@
-import { LBEvent, LBEventProps } from './lb-event';
-
 export enum LBHttpMethodType {
   GET, POST, PUT, DELETE, PATCH
 }
 
-export interface LBHttpEventProps extends LBEventProps {
+export interface LBHttpEventProps {
   readonly lbHttpMethodType: LBHttpMethodType;
-  readonly gatewayPath: string;
+  readonly httpPath: string;
 }
 
-export class LBHttpEvent extends LBEvent {
+export class LBHttpEvent {
   public readonly lbHttpMethodType: LBHttpMethodType;
-  public readonly gatewayPath: string;
+  public readonly httpPath: string;
 
   constructor(props: LBHttpEventProps) {
-    super(props);
-
     this.lbHttpMethodType = props.lbHttpMethodType;
-    this.gatewayPath = props.gatewayPath;
+    this.httpPath = props.httpPath;
   }
 
   public toString(): string {
@@ -43,7 +39,7 @@ export class LBHttpEvent extends LBEvent {
       '  events:',
       '    - http:',
       methodLine,
-      `        path: ${this.gatewayPath}`,
+      `        path: ${this.httpPath}`,
       '',
     ].join('\n');
     return event;

@@ -3,34 +3,6 @@
 
 ## Structs <a name="Structs" id="Structs"></a>
 
-### LBEventProps <a name="LBEventProps" id="lb-sls.LBEventProps"></a>
-
-#### Initializer <a name="Initializer" id="lb-sls.LBEventProps.Initializer"></a>
-
-```typescript
-import { LBEventProps } from 'lb-sls'
-
-const lBEventProps: LBEventProps = { ... }
-```
-
-#### Properties <a name="Properties" id="Properties"></a>
-
-| **Name** | **Type** | **Description** |
-| --- | --- | --- |
-| <code><a href="#lb-sls.LBEventProps.property.lbEventType">lbEventType</a></code> | <code><a href="#lb-sls.LBEventType">LBEventType</a></code> | *No description.* |
-
----
-
-##### `lbEventType`<sup>Required</sup> <a name="lbEventType" id="lb-sls.LBEventProps.property.lbEventType"></a>
-
-```typescript
-public readonly lbEventType: LBEventType;
-```
-
-- *Type:* <a href="#lb-sls.LBEventType">LBEventType</a>
-
----
-
 ### LBFunctionProps <a name="LBFunctionProps" id="lb-sls.LBFunctionProps"></a>
 
 #### Initializer <a name="Initializer" id="lb-sls.LBFunctionProps.Initializer"></a>
@@ -73,26 +45,15 @@ const lBHttpEventProps: LBHttpEventProps = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#lb-sls.LBHttpEventProps.property.lbEventType">lbEventType</a></code> | <code><a href="#lb-sls.LBEventType">LBEventType</a></code> | *No description.* |
-| <code><a href="#lb-sls.LBHttpEventProps.property.gatewayPath">gatewayPath</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#lb-sls.LBHttpEventProps.property.httpPath">httpPath</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#lb-sls.LBHttpEventProps.property.lbHttpMethodType">lbHttpMethodType</a></code> | <code><a href="#lb-sls.LBHttpMethodType">LBHttpMethodType</a></code> | *No description.* |
 
 ---
 
-##### `lbEventType`<sup>Required</sup> <a name="lbEventType" id="lb-sls.LBHttpEventProps.property.lbEventType"></a>
+##### `httpPath`<sup>Required</sup> <a name="httpPath" id="lb-sls.LBHttpEventProps.property.httpPath"></a>
 
 ```typescript
-public readonly lbEventType: LBEventType;
-```
-
-- *Type:* <a href="#lb-sls.LBEventType">LBEventType</a>
-
----
-
-##### `gatewayPath`<sup>Required</sup> <a name="gatewayPath" id="lb-sls.LBHttpEventProps.property.gatewayPath"></a>
-
-```typescript
-public readonly gatewayPath: string;
+public readonly httpPath: string;
 ```
 
 - *Type:* string
@@ -110,49 +71,6 @@ public readonly lbHttpMethodType: LBHttpMethodType;
 ---
 
 ## Classes <a name="Classes" id="Classes"></a>
-
-### LBEvent <a name="LBEvent" id="lb-sls.LBEvent"></a>
-
-#### Initializers <a name="Initializers" id="lb-sls.LBEvent.Initializer"></a>
-
-```typescript
-import { LBEvent } from 'lb-sls'
-
-new LBEvent(props: LBEventProps)
-```
-
-| **Name** | **Type** | **Description** |
-| --- | --- | --- |
-| <code><a href="#lb-sls.LBEvent.Initializer.parameter.props">props</a></code> | <code><a href="#lb-sls.LBEventProps">LBEventProps</a></code> | *No description.* |
-
----
-
-##### `props`<sup>Required</sup> <a name="props" id="lb-sls.LBEvent.Initializer.parameter.props"></a>
-
-- *Type:* <a href="#lb-sls.LBEventProps">LBEventProps</a>
-
----
-
-
-
-#### Properties <a name="Properties" id="Properties"></a>
-
-| **Name** | **Type** | **Description** |
-| --- | --- | --- |
-| <code><a href="#lb-sls.LBEvent.property.lbEventType">lbEventType</a></code> | <code><a href="#lb-sls.LBEventType">LBEventType</a></code> | *No description.* |
-
----
-
-##### `lbEventType`<sup>Required</sup> <a name="lbEventType" id="lb-sls.LBEvent.property.lbEventType"></a>
-
-```typescript
-public readonly lbEventType: LBEventType;
-```
-
-- *Type:* <a href="#lb-sls.LBEventType">LBEventType</a>
-
----
-
 
 ### LBFunction <a name="LBFunction" id="lb-sls.LBFunction"></a>
 
@@ -247,7 +165,7 @@ new LBHttpEvent(props: LBHttpEventProps)
 
 | **Name** | **Description** |
 | --- | --- |
-| <code><a href="#lb-sls.LBHttpEvent.toString">toString</a></code> | Returns a string representation of an object. |
+| <code><a href="#lb-sls.LBHttpEvent.toString">toString</a></code> | *No description.* |
 
 ---
 
@@ -257,33 +175,20 @@ new LBHttpEvent(props: LBHttpEventProps)
 public toString(): string
 ```
 
-Returns a string representation of an object.
-
 
 #### Properties <a name="Properties" id="Properties"></a>
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#lb-sls.LBHttpEvent.property.lbEventType">lbEventType</a></code> | <code><a href="#lb-sls.LBEventType">LBEventType</a></code> | *No description.* |
-| <code><a href="#lb-sls.LBHttpEvent.property.gatewayPath">gatewayPath</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#lb-sls.LBHttpEvent.property.httpPath">httpPath</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#lb-sls.LBHttpEvent.property.lbHttpMethodType">lbHttpMethodType</a></code> | <code><a href="#lb-sls.LBHttpMethodType">LBHttpMethodType</a></code> | *No description.* |
 
 ---
 
-##### `lbEventType`<sup>Required</sup> <a name="lbEventType" id="lb-sls.LBHttpEvent.property.lbEventType"></a>
+##### `httpPath`<sup>Required</sup> <a name="httpPath" id="lb-sls.LBHttpEvent.property.httpPath"></a>
 
 ```typescript
-public readonly lbEventType: LBEventType;
-```
-
-- *Type:* <a href="#lb-sls.LBEventType">LBEventType</a>
-
----
-
-##### `gatewayPath`<sup>Required</sup> <a name="gatewayPath" id="lb-sls.LBHttpEvent.property.gatewayPath"></a>
-
-```typescript
-public readonly gatewayPath: string;
+public readonly httpPath: string;
 ```
 
 - *Type:* string
@@ -357,7 +262,7 @@ new LBSls(options: TypeScriptProjectOptions)
 | <code><a href="#lb-sls.LBSls.removeScript">removeScript</a></code> | Removes the npm script (always successful). |
 | <code><a href="#lb-sls.LBSls.renderWorkflowSetup">renderWorkflowSetup</a></code> | Returns the set of workflow steps which should be executed to bootstrap a workflow. |
 | <code><a href="#lb-sls.LBSls.setScript">setScript</a></code> | Replaces the contents of an npm package.json script. |
-| <code><a href="#lb-sls.LBSls.httpFunction">httpFunction</a></code> | *No description.* |
+| <code><a href="#lb-sls.LBSls.httpfunction">httpfunction</a></code> | *No description.* |
 
 ---
 
@@ -855,19 +760,19 @@ The command to execute.
 
 ---
 
-##### `httpFunction` <a name="httpFunction" id="lb-sls.LBSls.httpFunction"></a>
+##### `httpfunction` <a name="httpfunction" id="lb-sls.LBSls.httpfunction"></a>
 
 ```typescript
-public httpFunction(name: string, event: LBHttpEventProps): void
+public httpfunction(name: string, event: LBHttpEventProps): void
 ```
 
-###### `name`<sup>Required</sup> <a name="name" id="lb-sls.LBSls.httpFunction.parameter.name"></a>
+###### `name`<sup>Required</sup> <a name="name" id="lb-sls.LBSls.httpfunction.parameter.name"></a>
 
 - *Type:* string
 
 ---
 
-###### `event`<sup>Required</sup> <a name="event" id="lb-sls.LBSls.httpFunction.parameter.event"></a>
+###### `event`<sup>Required</sup> <a name="event" id="lb-sls.LBSls.httpfunction.parameter.event"></a>
 
 - *Type:* <a href="#lb-sls.LBHttpEventProps">LBHttpEventProps</a>
 
@@ -1662,27 +1567,6 @@ this task should synthesize the project files.
 
 
 ## Enums <a name="Enums" id="Enums"></a>
-
-### LBEventType <a name="LBEventType" id="lb-sls.LBEventType"></a>
-
-#### Members <a name="Members" id="Members"></a>
-
-| **Name** | **Description** |
-| --- | --- |
-| <code><a href="#lb-sls.LBEventType.HTTP">HTTP</a></code> | *No description.* |
-| <code><a href="#lb-sls.LBEventType.SQS">SQS</a></code> | *No description.* |
-
----
-
-##### `HTTP` <a name="HTTP" id="lb-sls.LBEventType.HTTP"></a>
-
----
-
-
-##### `SQS` <a name="SQS" id="lb-sls.LBEventType.SQS"></a>
-
----
-
 
 ### LBHttpMethodType <a name="LBHttpMethodType" id="lb-sls.LBHttpMethodType"></a>
 
