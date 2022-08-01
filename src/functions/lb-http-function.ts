@@ -17,14 +17,16 @@ export class LBHttpFunction extends LBFunction {
   }
 
   public configYaml(project: Project) {
-    const path = `src/functions/${project.name}`;
     let fileContent = [
       `${convertFunctionName(this.name)}:`,
       `  name: \${self:provider.stage}-\${self:service}-${this.name}`,
-      `  handler: ${path}/${this.name}/index.handler`,
+      `  handler: ${this.path}/index.handler`,
+      '',
+      this.event.toString(),
+      '',
     ];
 
-    new TextFile(project, `${path}/config.yml`, {
+    new TextFile(project, `${this.path}/config.yml`, {
       marker: false,
       readonly: false,
       committed: true,

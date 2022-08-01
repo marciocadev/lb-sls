@@ -6,9 +6,11 @@ export interface LBFunctionProps {
 
 export class LBFunction {
   public readonly name: string;
+  public readonly path: string;
 
   constructor(props: LBFunctionProps) {
     this.name = props.name;
+    this.path = `src/functions/${props.name}`;
 
     this.appendFunctionToServerlessYaml();
   }
@@ -20,12 +22,12 @@ export class LBFunction {
     if (posFunctions > -1) {
       const pos = posFunctions + 'functions:'.length;
       initialData = [data.slice(0, pos)].join('');
-      middleData = `  - \${file(src/functions/${this.name}/config.yml)}`;
+      middleData = `  - \${file(${this.path}/config.yml)}`;
       finalData = [data.slice(pos)].join('');
     } else {
       initialData = [data.slice(0, data.length)].join('');
       middleData = 'functions:';
-      finalData = `  - \${file(src/functions/${this.name}/config.yml)}`;
+      finalData = `  - \${file(${this.path}/config.yml)}`;
     }
     const newData = [initialData, middleData, finalData].join('\n');
     writeFileSync('serverless.yml', newData);

@@ -35,10 +35,7 @@ export class LBSls extends TypeScriptProject {
   }
 
   public httpFunction(name: string, event: LBHttpEventProps) {
-    const fnc = new LBHttpFunction({
-      name: name,
-      event: event,
-    });
+    const fnc = new LBHttpFunction({ name: name, event: event });
     fnc.configYaml(this);
   }
 }
