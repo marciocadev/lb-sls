@@ -45,8 +45,19 @@ const lBHttpEventProps: LBHttpEventProps = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| <code><a href="#lb-sls.LBHttpEventProps.property.name">name</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#lb-sls.LBHttpEventProps.property.httpPath">httpPath</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#lb-sls.LBHttpEventProps.property.lbHttpMethodType">lbHttpMethodType</a></code> | <code><a href="#lb-sls.LBHttpMethodType">LBHttpMethodType</a></code> | *No description.* |
+
+---
+
+##### `name`<sup>Required</sup> <a name="name" id="lb-sls.LBHttpEventProps.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
 
 ---
 
@@ -67,6 +78,70 @@ public readonly lbHttpMethodType: LBHttpMethodType;
 ```
 
 - *Type:* <a href="#lb-sls.LBHttpMethodType">LBHttpMethodType</a>
+
+---
+
+### LBHttpFunctionProps <a name="LBHttpFunctionProps" id="lb-sls.LBHttpFunctionProps"></a>
+
+#### Initializer <a name="Initializer" id="lb-sls.LBHttpFunctionProps.Initializer"></a>
+
+```typescript
+import { LBHttpFunctionProps } from 'lb-sls'
+
+const lBHttpFunctionProps: LBHttpFunctionProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#lb-sls.LBHttpFunctionProps.property.name">name</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#lb-sls.LBHttpFunctionProps.property.httpPath">httpPath</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#lb-sls.LBHttpFunctionProps.property.lbHttpMethodType">lbHttpMethodType</a></code> | <code><a href="#lb-sls.LBHttpMethodType">LBHttpMethodType</a></code> | *No description.* |
+| <code><a href="#lb-sls.LBHttpFunctionProps.property.vpc">vpc</a></code> | <code>boolean</code> | Habilita a vpc. |
+
+---
+
+##### `name`<sup>Required</sup> <a name="name" id="lb-sls.LBHttpFunctionProps.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+---
+
+##### `httpPath`<sup>Required</sup> <a name="httpPath" id="lb-sls.LBHttpFunctionProps.property.httpPath"></a>
+
+```typescript
+public readonly httpPath: string;
+```
+
+- *Type:* string
+
+---
+
+##### `lbHttpMethodType`<sup>Required</sup> <a name="lbHttpMethodType" id="lb-sls.LBHttpFunctionProps.property.lbHttpMethodType"></a>
+
+```typescript
+public readonly lbHttpMethodType: LBHttpMethodType;
+```
+
+- *Type:* <a href="#lb-sls.LBHttpMethodType">LBHttpMethodType</a>
+
+---
+
+##### `vpc`<sup>Optional</sup> <a name="vpc" id="lb-sls.LBHttpFunctionProps.property.vpc"></a>
+
+```typescript
+public readonly vpc: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Habilita a vpc.
 
 ---
 
@@ -202,6 +277,121 @@ public readonly lbHttpMethodType: LBHttpMethodType;
 ```
 
 - *Type:* <a href="#lb-sls.LBHttpMethodType">LBHttpMethodType</a>
+
+---
+
+
+### LBHttpFunction <a name="LBHttpFunction" id="lb-sls.LBHttpFunction"></a>
+
+#### Initializers <a name="Initializers" id="lb-sls.LBHttpFunction.Initializer"></a>
+
+```typescript
+import { LBHttpFunction } from 'lb-sls'
+
+new LBHttpFunction(props: LBHttpFunctionProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#lb-sls.LBHttpFunction.Initializer.parameter.props">props</a></code> | <code><a href="#lb-sls.LBHttpFunctionProps">LBHttpFunctionProps</a></code> | *No description.* |
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="lb-sls.LBHttpFunction.Initializer.parameter.props"></a>
+
+- *Type:* <a href="#lb-sls.LBHttpFunctionProps">LBHttpFunctionProps</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#lb-sls.LBHttpFunction.appendFunctionToServerlessYaml">appendFunctionToServerlessYaml</a></code> | *No description.* |
+| <code><a href="#lb-sls.LBHttpFunction.configYaml">configYaml</a></code> | *No description.* |
+| <code><a href="#lb-sls.LBHttpFunction.sampleCode">sampleCode</a></code> | *No description.* |
+
+---
+
+##### `appendFunctionToServerlessYaml` <a name="appendFunctionToServerlessYaml" id="lb-sls.LBHttpFunction.appendFunctionToServerlessYaml"></a>
+
+```typescript
+public appendFunctionToServerlessYaml(): void
+```
+
+##### `configYaml` <a name="configYaml" id="lb-sls.LBHttpFunction.configYaml"></a>
+
+```typescript
+public configYaml(project: Project): void
+```
+
+###### `project`<sup>Required</sup> <a name="project" id="lb-sls.LBHttpFunction.configYaml.parameter.project"></a>
+
+- *Type:* projen.Project
+
+---
+
+##### `sampleCode` <a name="sampleCode" id="lb-sls.LBHttpFunction.sampleCode"></a>
+
+```typescript
+public sampleCode(project: Project): void
+```
+
+###### `project`<sup>Required</sup> <a name="project" id="lb-sls.LBHttpFunction.sampleCode.parameter.project"></a>
+
+- *Type:* projen.Project
+
+---
+
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#lb-sls.LBHttpFunction.property.name">name</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#lb-sls.LBHttpFunction.property.path">path</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#lb-sls.LBHttpFunction.property.event">event</a></code> | <code><a href="#lb-sls.LBHttpEvent">LBHttpEvent</a></code> | *No description.* |
+| <code><a href="#lb-sls.LBHttpFunction.property.vpc">vpc</a></code> | <code>boolean</code> | *No description.* |
+
+---
+
+##### `name`<sup>Required</sup> <a name="name" id="lb-sls.LBHttpFunction.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+---
+
+##### `path`<sup>Required</sup> <a name="path" id="lb-sls.LBHttpFunction.property.path"></a>
+
+```typescript
+public readonly path: string;
+```
+
+- *Type:* string
+
+---
+
+##### `event`<sup>Required</sup> <a name="event" id="lb-sls.LBHttpFunction.property.event"></a>
+
+```typescript
+public readonly event: LBHttpEvent;
+```
+
+- *Type:* <a href="#lb-sls.LBHttpEvent">LBHttpEvent</a>
+
+---
+
+##### `vpc`<sup>Required</sup> <a name="vpc" id="lb-sls.LBHttpFunction.property.vpc"></a>
+
+```typescript
+public readonly vpc: boolean;
+```
+
+- *Type:* boolean
 
 ---
 
@@ -763,18 +953,12 @@ The command to execute.
 ##### `httpfunction` <a name="httpfunction" id="lb-sls.LBSls.httpfunction"></a>
 
 ```typescript
-public httpfunction(name: string, event: LBHttpEventProps): void
+public httpfunction(props: LBHttpFunctionProps): void
 ```
 
-###### `name`<sup>Required</sup> <a name="name" id="lb-sls.LBSls.httpfunction.parameter.name"></a>
+###### `props`<sup>Required</sup> <a name="props" id="lb-sls.LBSls.httpfunction.parameter.props"></a>
 
-- *Type:* string
-
----
-
-###### `event`<sup>Required</sup> <a name="event" id="lb-sls.LBSls.httpfunction.parameter.event"></a>
-
-- *Type:* <a href="#lb-sls.LBHttpEventProps">LBHttpEventProps</a>
+- *Type:* <a href="#lb-sls.LBHttpFunctionProps">LBHttpFunctionProps</a>
 
 ---
 

@@ -1,11 +1,10 @@
 import { existsSync } from 'fs';
 import { Project, SourceCode, TextFile } from 'projen';
 import { convertFunctionName } from './lb-commons';
-import { LBFunction, LBFunctionProps } from './lb-function';
+import { LBFunction } from './lb-function';
 import { LBHttpEvent, LBHttpEventProps } from './lb-http-event';
 
-export interface LBHttpFunctionProps extends LBFunctionProps {
-  readonly event: LBHttpEventProps;
+export interface LBHttpFunctionProps extends LBHttpEventProps {
   /**
    * Habilita a vpc
    *
@@ -22,7 +21,7 @@ export class LBHttpFunction extends LBFunction {
     super(props);
 
     this.vpc = props.vpc ?? false;
-    this.event = new LBHttpEvent(props.event);
+    this.event = new LBHttpEvent(props);
   }
 
   public sampleCode(project: Project) {
