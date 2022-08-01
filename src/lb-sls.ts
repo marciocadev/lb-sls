@@ -32,10 +32,17 @@ export class LBSls extends TypeScriptProject {
     if (!existsSync('serverless.yml')) {
       serverless(this);
     }
+
+    this.addDeps('esbuild');
+    this.addDeps('serverless');
+    this.addDeps('serverless-esbuild');
+    this.addDeps('@types/aws-lambda');
+    this.addDeps('@aws-lambda-powertools/logger');
   }
 
   public httpFunction(name: string, event: LBHttpEventProps) {
     const fnc = new LBHttpFunction({ name: name, event: event });
     fnc.configYaml(this);
+    fnc.sampleCode(this);
   }
 }
