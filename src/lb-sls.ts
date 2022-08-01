@@ -17,7 +17,7 @@ export class LBSls extends TypeScriptProject {
       },
       github: false,
       licensed: false,
-      sampleCode: true,
+      sampleCode: false,
       projenrcTs: true,
       ...options,
     });
