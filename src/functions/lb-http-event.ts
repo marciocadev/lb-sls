@@ -24,26 +24,26 @@ export class LBHttpEvent extends LBEvent {
     let methodLine = '';
     switch (this.methodType) {
       case LBHttpMethodType.GET:
-        methodLine = '      method: get';
+        methodLine = '        method: get';
         break;
       case LBHttpMethodType.POST:
-        methodLine = '      method: post';
+        methodLine = '        method: post';
         break;
       case LBHttpMethodType.PUT:
-        methodLine = '      method: put';
+        methodLine = '        method: put';
         break;
       case LBHttpMethodType.DELETE:
-        methodLine = '      method: delete';
+        methodLine = '        method: delete';
         break;
       case LBHttpMethodType.PATCH:
-        methodLine = '      method: patch';
+        methodLine = '        method: patch';
         break;
     }
     const event = [
       '  events:',
       '    - http:',
       methodLine,
-      `      path: ${this.gatewayPath}`,
+      `        path: ${this.gatewayPath}`,
       '',
     ].join('\n');
     return event;
