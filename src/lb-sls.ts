@@ -40,7 +40,7 @@ export class LBSls extends TypeScriptProject {
     this.addDeps('@aws-lambda-powertools/logger');
   }
 
-  public httpFunction(name: string, event: LBHttpEventProps) {
+  public httpfunction(name: string, event: LBHttpEventProps) {
     const fnc = new LBHttpFunction({ name: name, event: event });
     fnc.configYaml(this);
     fnc.sampleCode(this);

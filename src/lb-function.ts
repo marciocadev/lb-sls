@@ -26,7 +26,7 @@ export class LBFunction {
       const pos = posFunctions + 'functions:'.length;
       initialData = [data.slice(0, pos)].join('');
       middleData = `  - \${file(${this.path}/config.yml)}`;
-      finalData = [data.slice(pos+2)].join('');
+      finalData = [data.slice(pos+1)].join('');
     } else {
       initialData = [data.slice(0, data.length)].join('');
       middleData = 'functions:';
