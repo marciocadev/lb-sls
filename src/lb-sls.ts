@@ -1,7 +1,7 @@
 import { existsSync } from 'fs';
 import { TypeScriptProject, TypeScriptProjectOptions } from 'projen/lib/typescript';
-import { LBHttpEventProps } from './functions/lb-http-event';
-import { LBHttpFunction } from './functions/lb-http-function';
+import { LBHttpEventProps } from './lb-http-event';
+import { LBHttpFunction } from './lb-http-function';
 import { readmeFile } from './lb-readme';
 import { serverless } from './lb-serverless-yaml';
 import { vscodeSettings } from './lb-vscode';

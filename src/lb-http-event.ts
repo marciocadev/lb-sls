@@ -5,24 +5,24 @@ export enum LBHttpMethodType {
 }
 
 export interface LBHttpEventProps extends LBEventProps {
-  readonly methodType: LBHttpMethodType;
+  readonly lbHttpMethodType: LBHttpMethodType;
   readonly gatewayPath: string;
 }
 
 export class LBHttpEvent extends LBEvent {
-  public readonly methodType: LBHttpMethodType;
+  public readonly lbHttpMethodType: LBHttpMethodType;
   public readonly gatewayPath: string;
 
   constructor(props: LBHttpEventProps) {
     super(props);
 
-    this.methodType = props.methodType;
+    this.lbHttpMethodType = props.lbHttpMethodType;
     this.gatewayPath = props.gatewayPath;
   }
 
   public toString(): string {
     let methodLine = '';
-    switch (this.methodType) {
+    switch (this.lbHttpMethodType) {
       case LBHttpMethodType.GET:
         methodLine = '        method: get';
         break;
