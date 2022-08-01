@@ -196,6 +196,7 @@ public appendFunctionToServerlessYaml(): void
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#lb-sls.LBFunction.property.name">name</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#lb-sls.LBFunction.property.path">path</a></code> | <code>string</code> | *No description.* |
 
 ---
 
@@ -203,6 +204,16 @@ public appendFunctionToServerlessYaml(): void
 
 ```typescript
 public readonly name: string;
+```
+
+- *Type:* string
+
+---
+
+##### `path`<sup>Required</sup> <a name="path" id="lb-sls.LBFunction.property.path"></a>
+
+```typescript
+public readonly path: string;
 ```
 
 - *Type:* string
