@@ -17,14 +17,14 @@ const lBEventProps: LBEventProps = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#lb-sls.LBEventProps.property.eventType">eventType</a></code> | <code><a href="#lb-sls.LBEventType">LBEventType</a></code> | *No description.* |
+| <code><a href="#lb-sls.LBEventProps.property.lbEventType">lbEventType</a></code> | <code><a href="#lb-sls.LBEventType">LBEventType</a></code> | *No description.* |
 
 ---
 
-##### `eventType`<sup>Required</sup> <a name="eventType" id="lb-sls.LBEventProps.property.eventType"></a>
+##### `lbEventType`<sup>Required</sup> <a name="lbEventType" id="lb-sls.LBEventProps.property.lbEventType"></a>
 
 ```typescript
-public readonly eventType: LBEventType;
+public readonly lbEventType: LBEventType;
 ```
 
 - *Type:* <a href="#lb-sls.LBEventType">LBEventType</a>
@@ -73,16 +73,16 @@ const lBHttpEventProps: LBHttpEventProps = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#lb-sls.LBHttpEventProps.property.eventType">eventType</a></code> | <code><a href="#lb-sls.LBEventType">LBEventType</a></code> | *No description.* |
+| <code><a href="#lb-sls.LBHttpEventProps.property.lbEventType">lbEventType</a></code> | <code><a href="#lb-sls.LBEventType">LBEventType</a></code> | *No description.* |
 | <code><a href="#lb-sls.LBHttpEventProps.property.gatewayPath">gatewayPath</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#lb-sls.LBHttpEventProps.property.methodType">methodType</a></code> | <code><a href="#lb-sls.LBHttpMethodType">LBHttpMethodType</a></code> | *No description.* |
+| <code><a href="#lb-sls.LBHttpEventProps.property.lbHttpMethodType">lbHttpMethodType</a></code> | <code><a href="#lb-sls.LBHttpMethodType">LBHttpMethodType</a></code> | *No description.* |
 
 ---
 
-##### `eventType`<sup>Required</sup> <a name="eventType" id="lb-sls.LBHttpEventProps.property.eventType"></a>
+##### `lbEventType`<sup>Required</sup> <a name="lbEventType" id="lb-sls.LBHttpEventProps.property.lbEventType"></a>
 
 ```typescript
-public readonly eventType: LBEventType;
+public readonly lbEventType: LBEventType;
 ```
 
 - *Type:* <a href="#lb-sls.LBEventType">LBEventType</a>
@@ -99,10 +99,10 @@ public readonly gatewayPath: string;
 
 ---
 
-##### `methodType`<sup>Required</sup> <a name="methodType" id="lb-sls.LBHttpEventProps.property.methodType"></a>
+##### `lbHttpMethodType`<sup>Required</sup> <a name="lbHttpMethodType" id="lb-sls.LBHttpEventProps.property.lbHttpMethodType"></a>
 
 ```typescript
-public readonly methodType: LBHttpMethodType;
+public readonly lbHttpMethodType: LBHttpMethodType;
 ```
 
 - *Type:* <a href="#lb-sls.LBHttpMethodType">LBHttpMethodType</a>
@@ -139,14 +139,14 @@ new LBEvent(props: LBEventProps)
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#lb-sls.LBEvent.property.eventType">eventType</a></code> | <code><a href="#lb-sls.LBEventType">LBEventType</a></code> | *No description.* |
+| <code><a href="#lb-sls.LBEvent.property.lbEventType">lbEventType</a></code> | <code><a href="#lb-sls.LBEventType">LBEventType</a></code> | *No description.* |
 
 ---
 
-##### `eventType`<sup>Required</sup> <a name="eventType" id="lb-sls.LBEvent.property.eventType"></a>
+##### `lbEventType`<sup>Required</sup> <a name="lbEventType" id="lb-sls.LBEvent.property.lbEventType"></a>
 
 ```typescript
-public readonly eventType: LBEventType;
+public readonly lbEventType: LBEventType;
 ```
 
 - *Type:* <a href="#lb-sls.LBEventType">LBEventType</a>
@@ -264,16 +264,16 @@ Returns a string representation of an object.
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#lb-sls.LBHttpEvent.property.eventType">eventType</a></code> | <code><a href="#lb-sls.LBEventType">LBEventType</a></code> | *No description.* |
+| <code><a href="#lb-sls.LBHttpEvent.property.lbEventType">lbEventType</a></code> | <code><a href="#lb-sls.LBEventType">LBEventType</a></code> | *No description.* |
 | <code><a href="#lb-sls.LBHttpEvent.property.gatewayPath">gatewayPath</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#lb-sls.LBHttpEvent.property.methodType">methodType</a></code> | <code><a href="#lb-sls.LBHttpMethodType">LBHttpMethodType</a></code> | *No description.* |
+| <code><a href="#lb-sls.LBHttpEvent.property.lbHttpMethodType">lbHttpMethodType</a></code> | <code><a href="#lb-sls.LBHttpMethodType">LBHttpMethodType</a></code> | *No description.* |
 
 ---
 
-##### `eventType`<sup>Required</sup> <a name="eventType" id="lb-sls.LBHttpEvent.property.eventType"></a>
+##### `lbEventType`<sup>Required</sup> <a name="lbEventType" id="lb-sls.LBHttpEvent.property.lbEventType"></a>
 
 ```typescript
-public readonly eventType: LBEventType;
+public readonly lbEventType: LBEventType;
 ```
 
 - *Type:* <a href="#lb-sls.LBEventType">LBEventType</a>
@@ -290,10 +290,10 @@ public readonly gatewayPath: string;
 
 ---
 
-##### `methodType`<sup>Required</sup> <a name="methodType" id="lb-sls.LBHttpEvent.property.methodType"></a>
+##### `lbHttpMethodType`<sup>Required</sup> <a name="lbHttpMethodType" id="lb-sls.LBHttpEvent.property.lbHttpMethodType"></a>
 
 ```typescript
-public readonly methodType: LBHttpMethodType;
+public readonly lbHttpMethodType: LBHttpMethodType;
 ```
 
 - *Type:* <a href="#lb-sls.LBHttpMethodType">LBHttpMethodType</a>

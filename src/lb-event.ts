@@ -3,13 +3,13 @@ export enum LBEventType {
 }
 
 export interface LBEventProps {
-  readonly eventType: LBEventType;
+  readonly lbEventType: LBEventType;
 }
 
 export class LBEvent {
-  public readonly eventType: LBEventType;
+  public readonly lbEventType: LBEventType;
 
   constructor(props: LBEventProps) {
-    this.eventType = props.eventType;
+    this.lbEventType = props.lbEventType;
   }
 }
