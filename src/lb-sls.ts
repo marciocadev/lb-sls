@@ -1,5 +1,6 @@
 import { existsSync } from 'fs';
 import { TypeScriptProject, TypeScriptProjectOptions } from 'projen/lib/typescript';
+import { pipeline } from './bitbucket';
 import { LBHttpFunction, LBHttpFunctionProps } from './lb-http-function';
 import { readmeFile } from './lb-readme';
 import { serverless } from './lb-serverless-yaml';
@@ -31,6 +32,8 @@ export class LBSls extends TypeScriptProject {
     if (!existsSync('serverless.yml')) {
       serverless(this);
     }
+
+    pipeline(this);
 
     this.addDeps('esbuild');
     this.addDeps('serverless');
