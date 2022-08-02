@@ -1,6 +1,6 @@
 import { existsSync } from 'fs';
 import { JsonFile, Project, SourceCode, TextFile } from 'projen';
-import { convertFunctionName, transformObjToSchema } from './lb-commons';
+import { convertFunctionName } from './lb-commons';
 import { LBFunction } from './lb-function';
 import { LBHttpEvent, LBHttpEventProps } from './lb-http-event';
 
@@ -22,16 +22,15 @@ export class LBHttpFunction extends LBFunction {
   public readonly event: LBHttpEvent;
   public readonly vpc: boolean;
   public readonly project: Project;
+  public readonly objectSchema?: {[key: string]: any};
 
   constructor(project: Project, props: LBHttpFunctionProps) {
     super(props);
 
     this.project = project;
     this.vpc = props.vpc ?? false;
+    this.objectSchema = props.schemaModel;
     this.event = new LBHttpEvent(props);
-    if (props.schemaModel) {
-      this.schameExample(props.schemaModel, props.requiredKeys);
-    }
   }
 
   public sampleCode() {
@@ -67,6 +66,12 @@ export class LBHttpFunction extends LBFunction {
   }
 
   public configYaml() {
+    if (this.objectSchema) {
+      const schema = this.event.schameExample(this.objectSchema);
+      new JsonFile(this.project, `${this.path}/schema.json`, {
+        obj: schema,
+      });
+    }
     if (existsSync(`${this.path}/config.yml`)) {
       return;
     }
@@ -75,8 +80,8 @@ export class LBHttpFunction extends LBFunction {
       `  name: \${self:provider.stage}-\${self:service}-${this.name}`,
       `  handler: ${this.path}/index.handler`,
       '',
-      this.event.toString(),
-      '',
+      this.event.httpEventCode(),
+      this.objectSchema ? this.event.schemaCode(`${this.path}/schema.json`) : '',
     ];
 
     if (this.vpc) {
@@ -99,16 +104,5 @@ export class LBHttpFunction extends LBFunction {
     });
   }
 
-  public schameExample(obj: {[key: string]: any}, requiredKeys?: string[]) {
-    if (existsSync(`${this.path}/schame.json`)) {
-      return;
-    }
-    let schema: {[key:string]: any} = {};
-    transformObjToSchema(obj, schema);
-    schema.schema = 'http://json-schema.org/draft-04/schema#';
-    if (requiredKeys) schema.required = requiredKeys;
-    new JsonFile(this.project, `${this.path}/schame.json`, {
-      obj: schema,
-    });
-  }
+
 }
