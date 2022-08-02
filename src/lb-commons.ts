@@ -8,8 +8,8 @@ export function convertFunctionName(txt: string) {
 }
 
 export function transformObjToSchema(obj: {[key:string]: any}, schema: {[key:string]: any}) {
-  obj.type = 'object';
-  obj.properties = {};
+  schema.type = 'object';
+  schema.properties = {};
   Object.keys(obj).forEach(function(key) {
     if (Number.isInteger(obj[key])) {
       schema.properties[key] = { type: 'integer' };
