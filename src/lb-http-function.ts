@@ -69,6 +69,9 @@ export class LBHttpFunction extends LBFunction {
     if (this.objectSchema) {
       const schema = this.event.schameExample(this.objectSchema);
       new JsonFile(this.project, `${this.path}/schema.json`, {
+        marker: false,
+        readonly: false,
+        committed: true,
         obj: schema,
       });
     }
@@ -103,6 +106,4 @@ export class LBHttpFunction extends LBFunction {
       lines: fileContent,
     });
   }
-
-
 }
