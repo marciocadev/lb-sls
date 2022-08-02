@@ -98,6 +98,8 @@ const lBHttpFunctionProps: LBHttpFunctionProps = { ... }
 | <code><a href="#lb-sls.LBHttpFunctionProps.property.name">name</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#lb-sls.LBHttpFunctionProps.property.httpPath">httpPath</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#lb-sls.LBHttpFunctionProps.property.lbHttpMethodType">lbHttpMethodType</a></code> | <code><a href="#lb-sls.LBHttpMethodType">LBHttpMethodType</a></code> | *No description.* |
+| <code><a href="#lb-sls.LBHttpFunctionProps.property.requiredKeys">requiredKeys</a></code> | <code>string[]</code> | *No description.* |
+| <code><a href="#lb-sls.LBHttpFunctionProps.property.schemaModel">schemaModel</a></code> | <code>{[ key: string ]: any}</code> | Exemplo do schema. |
 | <code><a href="#lb-sls.LBHttpFunctionProps.property.vpc">vpc</a></code> | <code>boolean</code> | Habilita a vpc. |
 
 ---
@@ -129,6 +131,28 @@ public readonly lbHttpMethodType: LBHttpMethodType;
 ```
 
 - *Type:* <a href="#lb-sls.LBHttpMethodType">LBHttpMethodType</a>
+
+---
+
+##### `requiredKeys`<sup>Optional</sup> <a name="requiredKeys" id="lb-sls.LBHttpFunctionProps.property.requiredKeys"></a>
+
+```typescript
+public readonly requiredKeys: string[];
+```
+
+- *Type:* string[]
+
+---
+
+##### `schemaModel`<sup>Optional</sup> <a name="schemaModel" id="lb-sls.LBHttpFunctionProps.property.schemaModel"></a>
+
+```typescript
+public readonly schemaModel: {[ key: string ]: any};
+```
+
+- *Type:* {[ key: string ]: any}
+
+Exemplo do schema.
 
 ---
 
@@ -288,12 +312,19 @@ public readonly lbHttpMethodType: LBHttpMethodType;
 ```typescript
 import { LBHttpFunction } from 'lb-sls'
 
-new LBHttpFunction(props: LBHttpFunctionProps)
+new LBHttpFunction(project: Project, props: LBHttpFunctionProps)
 ```
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| <code><a href="#lb-sls.LBHttpFunction.Initializer.parameter.project">project</a></code> | <code>projen.Project</code> | *No description.* |
 | <code><a href="#lb-sls.LBHttpFunction.Initializer.parameter.props">props</a></code> | <code><a href="#lb-sls.LBHttpFunctionProps">LBHttpFunctionProps</a></code> | *No description.* |
+
+---
+
+##### `project`<sup>Required</sup> <a name="project" id="lb-sls.LBHttpFunction.Initializer.parameter.project"></a>
+
+- *Type:* projen.Project
 
 ---
 
@@ -310,6 +341,7 @@ new LBHttpFunction(props: LBHttpFunctionProps)
 | <code><a href="#lb-sls.LBHttpFunction.appendFunctionToServerlessYaml">appendFunctionToServerlessYaml</a></code> | *No description.* |
 | <code><a href="#lb-sls.LBHttpFunction.configYaml">configYaml</a></code> | *No description.* |
 | <code><a href="#lb-sls.LBHttpFunction.sampleCode">sampleCode</a></code> | *No description.* |
+| <code><a href="#lb-sls.LBHttpFunction.schameExample">schameExample</a></code> | *No description.* |
 
 ---
 
@@ -322,24 +354,30 @@ public appendFunctionToServerlessYaml(): void
 ##### `configYaml` <a name="configYaml" id="lb-sls.LBHttpFunction.configYaml"></a>
 
 ```typescript
-public configYaml(project: Project): void
+public configYaml(): void
 ```
-
-###### `project`<sup>Required</sup> <a name="project" id="lb-sls.LBHttpFunction.configYaml.parameter.project"></a>
-
-- *Type:* projen.Project
-
----
 
 ##### `sampleCode` <a name="sampleCode" id="lb-sls.LBHttpFunction.sampleCode"></a>
 
 ```typescript
-public sampleCode(project: Project): void
+public sampleCode(): void
 ```
 
-###### `project`<sup>Required</sup> <a name="project" id="lb-sls.LBHttpFunction.sampleCode.parameter.project"></a>
+##### `schameExample` <a name="schameExample" id="lb-sls.LBHttpFunction.schameExample"></a>
 
-- *Type:* projen.Project
+```typescript
+public schameExample(obj: {[ key: string ]: any}, requiredKeys?: string[]): void
+```
+
+###### `obj`<sup>Required</sup> <a name="obj" id="lb-sls.LBHttpFunction.schameExample.parameter.obj"></a>
+
+- *Type:* {[ key: string ]: any}
+
+---
+
+###### `requiredKeys`<sup>Optional</sup> <a name="requiredKeys" id="lb-sls.LBHttpFunction.schameExample.parameter.requiredKeys"></a>
+
+- *Type:* string[]
 
 ---
 
@@ -351,6 +389,7 @@ public sampleCode(project: Project): void
 | <code><a href="#lb-sls.LBHttpFunction.property.name">name</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#lb-sls.LBHttpFunction.property.path">path</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#lb-sls.LBHttpFunction.property.event">event</a></code> | <code><a href="#lb-sls.LBHttpEvent">LBHttpEvent</a></code> | *No description.* |
+| <code><a href="#lb-sls.LBHttpFunction.property.project">project</a></code> | <code>projen.Project</code> | *No description.* |
 | <code><a href="#lb-sls.LBHttpFunction.property.vpc">vpc</a></code> | <code>boolean</code> | *No description.* |
 
 ---
@@ -382,6 +421,16 @@ public readonly event: LBHttpEvent;
 ```
 
 - *Type:* <a href="#lb-sls.LBHttpEvent">LBHttpEvent</a>
+
+---
+
+##### `project`<sup>Required</sup> <a name="project" id="lb-sls.LBHttpFunction.property.project"></a>
+
+```typescript
+public readonly project: Project;
+```
+
+- *Type:* projen.Project
 
 ---
 
