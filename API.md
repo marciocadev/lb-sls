@@ -264,15 +264,47 @@ new LBHttpEvent(props: LBHttpEventProps)
 
 | **Name** | **Description** |
 | --- | --- |
-| <code><a href="#lb-sls.LBHttpEvent.toString">toString</a></code> | *No description.* |
+| <code><a href="#lb-sls.LBHttpEvent.httpEventCode">httpEventCode</a></code> | *No description.* |
+| <code><a href="#lb-sls.LBHttpEvent.schameExample">schameExample</a></code> | *No description.* |
+| <code><a href="#lb-sls.LBHttpEvent.schemaCode">schemaCode</a></code> | *No description.* |
 
 ---
 
-##### `toString` <a name="toString" id="lb-sls.LBHttpEvent.toString"></a>
+##### `httpEventCode` <a name="httpEventCode" id="lb-sls.LBHttpEvent.httpEventCode"></a>
 
 ```typescript
-public toString(): string
+public httpEventCode(): string
 ```
+
+##### `schameExample` <a name="schameExample" id="lb-sls.LBHttpEvent.schameExample"></a>
+
+```typescript
+public schameExample(obj: {[ key: string ]: any}, requiredKeys?: string[]): {[ key: string ]: any}
+```
+
+###### `obj`<sup>Required</sup> <a name="obj" id="lb-sls.LBHttpEvent.schameExample.parameter.obj"></a>
+
+- *Type:* {[ key: string ]: any}
+
+---
+
+###### `requiredKeys`<sup>Optional</sup> <a name="requiredKeys" id="lb-sls.LBHttpEvent.schameExample.parameter.requiredKeys"></a>
+
+- *Type:* string[]
+
+---
+
+##### `schemaCode` <a name="schemaCode" id="lb-sls.LBHttpEvent.schemaCode"></a>
+
+```typescript
+public schemaCode(path: string): string
+```
+
+###### `path`<sup>Required</sup> <a name="path" id="lb-sls.LBHttpEvent.schemaCode.parameter.path"></a>
+
+- *Type:* string
+
+---
 
 
 #### Properties <a name="Properties" id="Properties"></a>
@@ -341,7 +373,6 @@ new LBHttpFunction(project: Project, props: LBHttpFunctionProps)
 | <code><a href="#lb-sls.LBHttpFunction.appendFunctionToServerlessYaml">appendFunctionToServerlessYaml</a></code> | *No description.* |
 | <code><a href="#lb-sls.LBHttpFunction.configYaml">configYaml</a></code> | *No description.* |
 | <code><a href="#lb-sls.LBHttpFunction.sampleCode">sampleCode</a></code> | *No description.* |
-| <code><a href="#lb-sls.LBHttpFunction.schameExample">schameExample</a></code> | *No description.* |
 
 ---
 
@@ -363,24 +394,6 @@ public configYaml(): void
 public sampleCode(): void
 ```
 
-##### `schameExample` <a name="schameExample" id="lb-sls.LBHttpFunction.schameExample"></a>
-
-```typescript
-public schameExample(obj: {[ key: string ]: any}, requiredKeys?: string[]): void
-```
-
-###### `obj`<sup>Required</sup> <a name="obj" id="lb-sls.LBHttpFunction.schameExample.parameter.obj"></a>
-
-- *Type:* {[ key: string ]: any}
-
----
-
-###### `requiredKeys`<sup>Optional</sup> <a name="requiredKeys" id="lb-sls.LBHttpFunction.schameExample.parameter.requiredKeys"></a>
-
-- *Type:* string[]
-
----
-
 
 #### Properties <a name="Properties" id="Properties"></a>
 
@@ -391,6 +404,7 @@ public schameExample(obj: {[ key: string ]: any}, requiredKeys?: string[]): void
 | <code><a href="#lb-sls.LBHttpFunction.property.event">event</a></code> | <code><a href="#lb-sls.LBHttpEvent">LBHttpEvent</a></code> | *No description.* |
 | <code><a href="#lb-sls.LBHttpFunction.property.project">project</a></code> | <code>projen.Project</code> | *No description.* |
 | <code><a href="#lb-sls.LBHttpFunction.property.vpc">vpc</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#lb-sls.LBHttpFunction.property.objectSchema">objectSchema</a></code> | <code>{[ key: string ]: any}</code> | *No description.* |
 
 ---
 
@@ -441,6 +455,16 @@ public readonly vpc: boolean;
 ```
 
 - *Type:* boolean
+
+---
+
+##### `objectSchema`<sup>Optional</sup> <a name="objectSchema" id="lb-sls.LBHttpFunction.property.objectSchema"></a>
+
+```typescript
+public readonly objectSchema: {[ key: string ]: any};
+```
+
+- *Type:* {[ key: string ]: any}
 
 ---
 

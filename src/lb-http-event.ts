@@ -1,3 +1,4 @@
+import { transformObjToSchema } from './lb-commons';
 import { LBFunctionProps } from './lb-function';
 
 export enum LBHttpMethodType {
@@ -18,7 +19,25 @@ export class LBHttpEvent {
     this.httpPath = props.httpPath;
   }
 
-  public toString(): string {
+  public schameExample(obj: {[key: string]: any}, requiredKeys?: string[]) {
+    let schema: {[key:string]: any} = {};
+    transformObjToSchema(obj, schema);
+    schema.schema = 'http://json-schema.org/draft-04/schema#';
+    if (requiredKeys) schema.required = requiredKeys;
+    return schema;
+  }
+
+  public schemaCode(path: string) {
+    const schema = [
+      '        request:',
+      '          schemas:',
+      `            application/json: \${file(${path})}`,
+      '',
+    ].join('\n');
+    return schema;
+  }
+
+  public httpEventCode(): string {
     let methodLine = '';
     switch (this.lbHttpMethodType) {
       case LBHttpMethodType.GET:
@@ -42,7 +61,6 @@ export class LBHttpEvent {
       '    - http:',
       methodLine,
       `        path: ${this.httpPath}`,
-      '',
     ].join('\n');
     return event;
   }
