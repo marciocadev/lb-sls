@@ -48,10 +48,4 @@ export class LBSls extends TypeScriptProject {
     lmb.sampleCode(this);
     lmb.configYaml(this);
   }
-
-  // public httpfunction(props: LBHttpFunctionProps) {
-  //   const fnc = new LBHttpFunction(this, props);
-  //   fnc.configYaml();
-  //   fnc.sampleCode();
-  // }
 }
