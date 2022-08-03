@@ -8,7 +8,7 @@ export function readmeFile(name: string): string {
   const readme = [
     `# ${name}`,
     '',
-    '',
+    'New Project',
   ].join('\n');
 
   return readme;
