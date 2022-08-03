@@ -1,29 +1,54 @@
 import { existsSync, readFileSync, writeFileSync } from 'fs';
-import { Project, SourceCode, TextFile } from 'projen';
-import { convertFunctionName } from '../functions';
+import { JsonFile, Project, SourceCode, TextFile } from 'projen';
+import { convertFunctionName, objectToSchema } from '../commons';
+import { Function, FunctionProps } from './function';
 
-export interface HttpLambdaProps {
-  /**
-   * Nome do lambda
-   */
-  readonly name: string;
+export enum HttpMethodType {
+  GET, POST, PUT, DELETE, PATCH
+}
+
+export interface HttpLambdaProps extends FunctionProps {
+  readonly methodPath: string;
+  readonly httpMethodType: HttpMethodType;
   /**
    * Habilita a vpc
    *
    * @default false
    */
   readonly vpc?: boolean;
+  readonly schemaObject?: {[key: string]: any};
+  readonly requiredKeys?: string[];
 }
 
-export class HttpFunction {
-  public readonly name: string;
-  public readonly path: string;
+export class HttpFunction extends Function {
+  public readonly methodPath: string;
+  public readonly httpMethodType: HttpMethodType;
   public readonly vpc?: boolean;
+  public readonly schemaObject?: {[key: string]: any};
+  readonly requiredKeys?: string[];
 
   constructor(props: HttpLambdaProps) {
-    this.name = props.name;
+    super(props);
+    this.methodPath = props.methodPath;
+    this.httpMethodType = props.httpMethodType;
     this.vpc = props.vpc;
-    this.path = `src/lambdas/${props.name}`;
+    this.schemaObject = props.schemaObject;
+    this.requiredKeys = props.requiredKeys;
+  }
+
+  schemaJson(project: Project) {
+    let schema: {[key:string]: any} = {};
+    schema = objectToSchema(this.schemaObject as {[key:string]: any});
+    schema.schema = 'http://json-schema.org/draft-04/schema#';
+    if (this.requiredKeys) {
+      schema.required = this.requiredKeys;
+    }
+    new JsonFile(project, `${this.path}/schema.json`, {
+      marker: false,
+      readonly: false,
+      committed: true,
+      obj: schema,
+    });
   }
 
   public configYaml(project: Project) {
@@ -39,6 +64,44 @@ export class HttpFunction {
       `  handler: ${this.path}/index.handler`,
       '',
     ];
+
+    let methodLine = '';
+    switch (this.httpMethodType) {
+      case HttpMethodType.GET:
+        methodLine = '        method: get';
+        break;
+      case HttpMethodType.POST:
+        methodLine = '        method: post';
+        break;
+      case HttpMethodType.PUT:
+        methodLine = '        method: put';
+        break;
+      case HttpMethodType.DELETE:
+        methodLine = '        method: delete';
+        break;
+      case HttpMethodType.PATCH:
+        methodLine = '        method: patch';
+        break;
+    }
+    let schemaLines = '';
+    if (this.schemaObject) {
+      this.schemaJson(project);
+      schemaLines = [
+        '        request:',
+        '          schemas:',
+        `            application/json: \${file(${this.path}/schema.json)}`,
+        '',
+      ].join('\n');
+    }
+    const event = [
+      '  events:',
+      '    - http:',
+      methodLine,
+      `        path: ${this.methodPath}`,
+      this.schemaObject ? schemaLines : '',
+    ].join('\n');
+    fileContent = fileContent.concat(event);
+
 
     if (this.vpc) {
       let vpcContent = [

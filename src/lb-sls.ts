@@ -1,6 +1,6 @@
 import { existsSync } from 'fs';
 import { TypeScriptProject, TypeScriptProjectOptions } from 'projen/lib/typescript';
-import { bitbucketPipeline, readmeFile, serverless, vscodeSettings } from './functions';
+import { bitbucketPipeline, readmeFile, serverless, vscodeSettings } from './commons';
 import { HttpFunction, HttpLambdaProps } from './lambdas';
 
 /**

@@ -3,6 +3,36 @@
 
 ## Structs <a name="Structs" id="Structs"></a>
 
+### FunctionProps <a name="FunctionProps" id="lb-sls.FunctionProps"></a>
+
+#### Initializer <a name="Initializer" id="lb-sls.FunctionProps.Initializer"></a>
+
+```typescript
+import { FunctionProps } from 'lb-sls'
+
+const functionProps: FunctionProps = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#lb-sls.FunctionProps.property.name">name</a></code> | <code>string</code> | Nome do lambda. |
+
+---
+
+##### `name`<sup>Required</sup> <a name="name" id="lb-sls.FunctionProps.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+Nome do lambda.
+
+---
+
 ### HttpLambdaProps <a name="HttpLambdaProps" id="lb-sls.HttpLambdaProps"></a>
 
 #### Initializer <a name="Initializer" id="lb-sls.HttpLambdaProps.Initializer"></a>
@@ -18,6 +48,10 @@ const httpLambdaProps: HttpLambdaProps = { ... }
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#lb-sls.HttpLambdaProps.property.name">name</a></code> | <code>string</code> | Nome do lambda. |
+| <code><a href="#lb-sls.HttpLambdaProps.property.httpMethodType">httpMethodType</a></code> | <code><a href="#lb-sls.HttpMethodType">HttpMethodType</a></code> | *No description.* |
+| <code><a href="#lb-sls.HttpLambdaProps.property.methodPath">methodPath</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#lb-sls.HttpLambdaProps.property.requiredKeys">requiredKeys</a></code> | <code>string[]</code> | *No description.* |
+| <code><a href="#lb-sls.HttpLambdaProps.property.schemaObject">schemaObject</a></code> | <code>{[ key: string ]: any}</code> | *No description.* |
 | <code><a href="#lb-sls.HttpLambdaProps.property.vpc">vpc</a></code> | <code>boolean</code> | Habilita a vpc. |
 
 ---
@@ -31,6 +65,46 @@ public readonly name: string;
 - *Type:* string
 
 Nome do lambda.
+
+---
+
+##### `httpMethodType`<sup>Required</sup> <a name="httpMethodType" id="lb-sls.HttpLambdaProps.property.httpMethodType"></a>
+
+```typescript
+public readonly httpMethodType: HttpMethodType;
+```
+
+- *Type:* <a href="#lb-sls.HttpMethodType">HttpMethodType</a>
+
+---
+
+##### `methodPath`<sup>Required</sup> <a name="methodPath" id="lb-sls.HttpLambdaProps.property.methodPath"></a>
+
+```typescript
+public readonly methodPath: string;
+```
+
+- *Type:* string
+
+---
+
+##### `requiredKeys`<sup>Optional</sup> <a name="requiredKeys" id="lb-sls.HttpLambdaProps.property.requiredKeys"></a>
+
+```typescript
+public readonly requiredKeys: string[];
+```
+
+- *Type:* string[]
+
+---
+
+##### `schemaObject`<sup>Optional</sup> <a name="schemaObject" id="lb-sls.HttpLambdaProps.property.schemaObject"></a>
+
+```typescript
+public readonly schemaObject: {[ key: string ]: any};
+```
+
+- *Type:* {[ key: string ]: any}
 
 ---
 
@@ -48,6 +122,60 @@ Habilita a vpc.
 ---
 
 ## Classes <a name="Classes" id="Classes"></a>
+
+### Function <a name="Function" id="lb-sls.Function"></a>
+
+#### Initializers <a name="Initializers" id="lb-sls.Function.Initializer"></a>
+
+```typescript
+import { Function } from 'lb-sls'
+
+new Function(props: FunctionProps)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#lb-sls.Function.Initializer.parameter.props">props</a></code> | <code><a href="#lb-sls.FunctionProps">FunctionProps</a></code> | *No description.* |
+
+---
+
+##### `props`<sup>Required</sup> <a name="props" id="lb-sls.Function.Initializer.parameter.props"></a>
+
+- *Type:* <a href="#lb-sls.FunctionProps">FunctionProps</a>
+
+---
+
+
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#lb-sls.Function.property.name">name</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#lb-sls.Function.property.path">path</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `name`<sup>Required</sup> <a name="name" id="lb-sls.Function.property.name"></a>
+
+```typescript
+public readonly name: string;
+```
+
+- *Type:* string
+
+---
+
+##### `path`<sup>Required</sup> <a name="path" id="lb-sls.Function.property.path"></a>
+
+```typescript
+public readonly path: string;
+```
+
+- *Type:* string
+
+---
+
 
 ### HttpFunction <a name="HttpFunction" id="lb-sls.HttpFunction"></a>
 
@@ -78,6 +206,7 @@ new HttpFunction(props: HttpLambdaProps)
 | <code><a href="#lb-sls.HttpFunction.appendLambdaToServerlessYaml">appendLambdaToServerlessYaml</a></code> | *No description.* |
 | <code><a href="#lb-sls.HttpFunction.configYaml">configYaml</a></code> | *No description.* |
 | <code><a href="#lb-sls.HttpFunction.sampleCode">sampleCode</a></code> | *No description.* |
+| <code><a href="#lb-sls.HttpFunction.schemaJson">schemaJson</a></code> | *No description.* |
 
 ---
 
@@ -111,6 +240,18 @@ public sampleCode(project: Project): void
 
 ---
 
+##### `schemaJson` <a name="schemaJson" id="lb-sls.HttpFunction.schemaJson"></a>
+
+```typescript
+public schemaJson(project: Project): void
+```
+
+###### `project`<sup>Required</sup> <a name="project" id="lb-sls.HttpFunction.schemaJson.parameter.project"></a>
+
+- *Type:* projen.Project
+
+---
+
 
 #### Properties <a name="Properties" id="Properties"></a>
 
@@ -118,6 +259,10 @@ public sampleCode(project: Project): void
 | --- | --- | --- |
 | <code><a href="#lb-sls.HttpFunction.property.name">name</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#lb-sls.HttpFunction.property.path">path</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#lb-sls.HttpFunction.property.httpMethodType">httpMethodType</a></code> | <code><a href="#lb-sls.HttpMethodType">HttpMethodType</a></code> | *No description.* |
+| <code><a href="#lb-sls.HttpFunction.property.methodPath">methodPath</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#lb-sls.HttpFunction.property.requiredKeys">requiredKeys</a></code> | <code>string[]</code> | *No description.* |
+| <code><a href="#lb-sls.HttpFunction.property.schemaObject">schemaObject</a></code> | <code>{[ key: string ]: any}</code> | *No description.* |
 | <code><a href="#lb-sls.HttpFunction.property.vpc">vpc</a></code> | <code>boolean</code> | *No description.* |
 
 ---
@@ -139,6 +284,46 @@ public readonly path: string;
 ```
 
 - *Type:* string
+
+---
+
+##### `httpMethodType`<sup>Required</sup> <a name="httpMethodType" id="lb-sls.HttpFunction.property.httpMethodType"></a>
+
+```typescript
+public readonly httpMethodType: HttpMethodType;
+```
+
+- *Type:* <a href="#lb-sls.HttpMethodType">HttpMethodType</a>
+
+---
+
+##### `methodPath`<sup>Required</sup> <a name="methodPath" id="lb-sls.HttpFunction.property.methodPath"></a>
+
+```typescript
+public readonly methodPath: string;
+```
+
+- *Type:* string
+
+---
+
+##### `requiredKeys`<sup>Optional</sup> <a name="requiredKeys" id="lb-sls.HttpFunction.property.requiredKeys"></a>
+
+```typescript
+public readonly requiredKeys: string[];
+```
+
+- *Type:* string[]
+
+---
+
+##### `schemaObject`<sup>Optional</sup> <a name="schemaObject" id="lb-sls.HttpFunction.property.schemaObject"></a>
+
+```typescript
+public readonly schemaObject: {[ key: string ]: any};
+```
+
+- *Type:* {[ key: string ]: any}
 
 ---
 
@@ -1506,4 +1691,44 @@ this task should synthesize the project files.
 
 ---
 
+
+## Enums <a name="Enums" id="Enums"></a>
+
+### HttpMethodType <a name="HttpMethodType" id="lb-sls.HttpMethodType"></a>
+
+#### Members <a name="Members" id="Members"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#lb-sls.HttpMethodType.GET">GET</a></code> | *No description.* |
+| <code><a href="#lb-sls.HttpMethodType.POST">POST</a></code> | *No description.* |
+| <code><a href="#lb-sls.HttpMethodType.PUT">PUT</a></code> | *No description.* |
+| <code><a href="#lb-sls.HttpMethodType.DELETE">DELETE</a></code> | *No description.* |
+| <code><a href="#lb-sls.HttpMethodType.PATCH">PATCH</a></code> | *No description.* |
+
+---
+
+##### `GET` <a name="GET" id="lb-sls.HttpMethodType.GET"></a>
+
+---
+
+
+##### `POST` <a name="POST" id="lb-sls.HttpMethodType.POST"></a>
+
+---
+
+
+##### `PUT` <a name="PUT" id="lb-sls.HttpMethodType.PUT"></a>
+
+---
+
+
+##### `DELETE` <a name="DELETE" id="lb-sls.HttpMethodType.DELETE"></a>
+
+---
+
+
+##### `PATCH` <a name="PATCH" id="lb-sls.HttpMethodType.PATCH"></a>
+
+---
 

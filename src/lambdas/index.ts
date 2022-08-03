@@ -1,1 +1,2 @@
-export * from './http-lambda';
+export * from './function';
+export * from './http-function';
