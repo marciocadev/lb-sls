@@ -1,10 +1,7 @@
 import { existsSync } from 'fs';
 import { TypeScriptProject, TypeScriptProjectOptions } from 'projen/lib/typescript';
-import { pipeline } from './bitbucket';
-import { LBHttpFunction, LBHttpFunctionProps } from './lb-http-function';
-import { readmeFile } from './lb-readme';
-import { serverless } from './lb-serverless-yaml';
-import { vscodeSettings } from './lb-vscode';
+import { bitbucketPipeline, readmeFile, serverless, vscodeSettings } from './commons';
+import { HttpFunction, HttpLambdaProps } from './lambdas';
 
 /**
  * LBSls
@@ -23,6 +20,11 @@ export class LBSls extends TypeScriptProject {
       ...options,
     });
 
+    // Cria o bitbucket pipeline
+    if (!existsSync('bitbucket-pipeline.yml')) {
+      bitbucketPipeline(this);
+    }
+
     // Cria o arquivo de configuração do vscode
     if (!existsSync('.vscode/settings.json')) {
       vscodeSettings(this);
@@ -33,8 +35,6 @@ export class LBSls extends TypeScriptProject {
       serverless(this);
     }
 
-    pipeline(this);
-
     this.addDeps('esbuild');
     this.addDeps('serverless');
     this.addDeps('serverless-esbuild');
@@ -42,9 +42,10 @@ export class LBSls extends TypeScriptProject {
     this.addDeps('@aws-lambda-powertools/logger');
   }
 
-  public httpfunction(props: LBHttpFunctionProps) {
-    const fnc = new LBHttpFunction(this, props);
-    fnc.configYaml();
-    fnc.sampleCode();
+  public addHttpFunction(props: HttpLambdaProps) {
+    const lmb = new HttpFunction(props);
+    lmb.appendLambdaToServerlessYaml();
+    lmb.sampleCode(this);
+    lmb.configYaml(this);
   }
 }
