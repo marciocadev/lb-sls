@@ -1,4 +1,4 @@
-import { transformObjToSchema } from './lb-commons';
+import { objectToSchema } from './functions';
 import { LBFunctionProps } from './lb-function';
 
 export enum LBHttpMethodType {
@@ -21,7 +21,7 @@ export class LBHttpEvent {
 
   public schameExample(obj: {[key: string]: any}, requiredKeys?: string[]) {
     let schema: {[key:string]: any} = {};
-    transformObjToSchema(obj, schema);
+    objectToSchema(obj, schema);
     schema.schema = 'http://json-schema.org/draft-04/schema#';
     if (requiredKeys) schema.required = requiredKeys;
     return schema;

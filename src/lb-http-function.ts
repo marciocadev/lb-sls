@@ -1,6 +1,6 @@
 import { existsSync } from 'fs';
 import { JsonFile, Project, SourceCode, TextFile } from 'projen';
-import { convertFunctionName } from './lb-commons';
+import { convertFunctionName } from './functions';
 import { LBFunction } from './lb-function';
 import { LBHttpEvent, LBHttpEventProps } from './lb-http-event';
 

@@ -1,6 +1,6 @@
 import { Project, TextFile } from 'projen';
 
-export function pipeline(project: Project) {
+export function bitbucketPipeline(project: Project) {
   const data = [
     'definitions: ',
     '  steps:',

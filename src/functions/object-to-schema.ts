@@ -1,13 +1,4 @@
-export function convertFunctionName(txt: string) {
-  let txtArr = txt.split('-');
-  let result: string = '';
-  for (const str of txtArr) {
-    result = result + str.charAt(0).toUpperCase() + str.slice(1);
-  }
-  return result;
-}
-
-export function transformObjToSchema(obj: {[key:string]: any}, schema: {[key:string]: any}) {
+export function objectToSchema(obj: {[key:string]: any}, schema: {[key:string]: any}) {
   schema.type = 'object';
   schema.properties = {};
   Object.keys(obj).forEach(function(key) {
@@ -21,7 +12,7 @@ export function transformObjToSchema(obj: {[key:string]: any}, schema: {[key:str
       schema.properties[key] = { type: 'boolean' };
     } else if (typeof obj[key] === 'object') {
       schema.properties = {};
-      transformObjToSchema(obj[key], schema.properties);
+      objectToSchema(obj[key], schema.properties);
     }
   });
 }
