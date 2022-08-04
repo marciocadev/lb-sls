@@ -39,6 +39,7 @@ export class LBSls extends TypeScriptProject {
     this.addDeps('serverless');
     this.addDeps('serverless-esbuild');
     this.addDeps('@types/aws-lambda');
+    // this.addDeps('@middy/core');
     this.addDeps('@aws-lambda-powertools/logger');
 
     readmeScript(this);
@@ -48,7 +49,7 @@ export class LBSls extends TypeScriptProject {
     macros.exec('mv README.md README.md.bak');
     macros.exec('cat README.md.bak | markmac > README.md');
     macros.exec('rm README.md.bak');
-    this.postCompileTask.spawn(macros);
+    this.defaultTask?.spawn(macros);
   }
 
   public addHttpFunction(props: HttpLambdaProps) {
