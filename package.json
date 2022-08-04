@@ -63,8 +63,12 @@
     "projen": "^0.60.14"
   },
   "dependencies": {
+    "markmac": "^0.1.329",
     "projen": "^0.60.14"
   },
+  "bundledDependencies": [
+    "markmac"
+  ],
   "main": "lib/index.js",
   "license": "Apache-2.0",
   "version": "0.0.0",
