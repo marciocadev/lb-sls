@@ -72,9 +72,19 @@ export function readmeScript(project: Project) {
   code.line('console.log(\'\');');
   code.close('}');
   code.close('}');
-  code.close('}');
-  code.close('}');
 
+  code.open('if (fs.existsSync(`./src/lambdas/${dir}/payload.json`)) {');
+  code.line('console.log(\'__Exemplo de payload__\');');
+  code.line('console.log(\'```json\');');
+  code.line('const payload = fs.readFileSync(`./src/lambdas/${dir}/payload.json`, {encoding: \'utf8\'});');
+  code.line('const payloadSplit = payload.split(/\\r?\\n/);');
+  code.open('for (const line of payloadSplit) {');
+  code.line('console.log(line);');
+  code.close('}');
+  code.line('console.log(\'```\');');
+  code.close('}');
+  code.close('}');
+  code.close('}');
   code.close('}');
   //code.line('console.log(\'\');');
 }

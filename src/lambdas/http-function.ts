@@ -125,6 +125,15 @@ export class HttpFunction extends Function {
   }
 
   public sampleCode(project: Project) {
+    if (this.schemaObject) {
+      new JsonFile(project, `${this.path}/payload.json`, {
+        committed: true,
+        readonly: false,
+        marker: false,
+        obj: this.schemaObject,
+      });
+    }
+
     if (existsSync(`${this.path}/index.ts`)) {
       console.warn(`🚫 \x1b[4m\x1b[31mbuild >> index.ts\x1b[0m | o lambda \x1b[1m\x1b[33m${this.name}\x1b[0m já foi criado`);
       return;
@@ -140,6 +149,18 @@ export class HttpFunction extends Function {
     code.line('');
     code.line(`const logger = new Logger({ logLevel: \'INFO\', serviceName: \'${project.name}\' });`);
     code.line('');
+    // if (this.schemaObject) {
+    //   let body = JSON.stringify(this.schemaObject, undefined, 2);
+    //   let bodyArr: string[] = body.split(/\r?\n/);
+    //   code.line('/**');
+    //   code.line(' * ');
+    //   code.line(' * payload de exemplo');
+    //   code.line(' * ');
+    //   for (const line of bodyArr) {
+    //     code.line(' * ' + line);
+    //   }
+    //   code.line(' */');
+    // }
     code.open('export const handler = async(event: APIGatewayProxyEvent, context: Context) => {');
     code.line('logger.addContext(context);');
     code.line('const body = JSON.parse(event.body ?? \'\');');
