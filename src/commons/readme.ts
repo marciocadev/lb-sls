@@ -86,5 +86,4 @@ export function readmeScript(project: Project) {
   code.close('}');
   code.close('}');
   code.close('}');
-  //code.line('console.log(\'\');');
 }

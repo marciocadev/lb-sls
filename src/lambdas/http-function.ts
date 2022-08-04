@@ -130,6 +130,7 @@ export class HttpFunction extends Function {
         committed: true,
         readonly: false,
         marker: false,
+        newline: false,
         obj: this.schemaObject,
       });
     }
@@ -149,18 +150,6 @@ export class HttpFunction extends Function {
     code.line('');
     code.line(`const logger = new Logger({ logLevel: \'INFO\', serviceName: \'${project.name}\' });`);
     code.line('');
-    // if (this.schemaObject) {
-    //   let body = JSON.stringify(this.schemaObject, undefined, 2);
-    //   let bodyArr: string[] = body.split(/\r?\n/);
-    //   code.line('/**');
-    //   code.line(' * ');
-    //   code.line(' * payload de exemplo');
-    //   code.line(' * ');
-    //   for (const line of bodyArr) {
-    //     code.line(' * ' + line);
-    //   }
-    //   code.line(' */');
-    // }
     code.open('export const handler = async(event: APIGatewayProxyEvent, context: Context) => {');
     code.line('logger.addContext(context);');
     code.line('const body = JSON.parse(event.body ?? \'\');');
