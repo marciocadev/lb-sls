@@ -1,6 +1,6 @@
 import { existsSync } from 'fs';
 import { TypeScriptProject, TypeScriptProjectOptions } from 'projen/lib/typescript';
-import { bitbucketPipeline, readmeFile, serverless, vscodeSettings } from './commons';
+import { bitbucketPipeline, readmeFile, readmeScript, serverless, vscodeSettings } from './commons';
 import { HttpFunction, HttpLambdaProps } from './lambdas';
 
 /**
@@ -40,6 +40,15 @@ export class LBSls extends TypeScriptProject {
     this.addDeps('serverless-esbuild');
     this.addDeps('@types/aws-lambda');
     this.addDeps('@aws-lambda-powertools/logger');
+
+    readmeScript(this);
+
+    // expand markdown macros in readme
+    const macros = this.addTask('readme-macros');
+    macros.exec('mv README.md README.md.bak');
+    macros.exec('cat README.md.bak | markmac > README.md');
+    macros.exec('rm README.md.bak');
+    this.postCompileTask.spawn(macros);
   }
 
   public addHttpFunction(props: HttpLambdaProps) {
@@ -48,4 +57,4 @@ export class LBSls extends TypeScriptProject {
     lmb.sampleCode(this);
     lmb.configYaml(this);
   }
-}
+};
