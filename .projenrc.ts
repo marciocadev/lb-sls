@@ -13,5 +13,6 @@ const project = new cdk.JsiiProject({
   publishTasks: true,
   deps: ['projen'],
   peerDeps: ['projen'],
+  bundledDeps: ['markmac'],
 });
 project.synth();

@@ -95,6 +95,10 @@
       "type": "build"
     },
     {
+      "name": "markmac",
+      "type": "bundled"
+    },
+    {
       "name": "projen",
       "type": "peer"
     },
