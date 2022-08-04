@@ -11,6 +11,13 @@ export function readmeFile(name: string): string {
     '',
     '<!-- <macro exec="node ./scripts/readme-projects.js"> -->',
     '<!-- </macro> -->',
+    '',
+    '## Comandos',
+    '',
+    '* **sls package** - cria o pacote serverless',
+    '* **sls deploy** - faz o deploy da stack na AWS',
+    '* **sls remove** - remove a stack da AWS',
+    '* **projen** - atualiza o projeto de acordo com a configuração do .projenrc.ts',
   ].join('\n');
 
   return readme;
@@ -22,6 +29,9 @@ export function readmeScript(project: Project) {
   });
 
   code.line('var fs = require(\'fs\');');
+
+  code.open('if (fs.existsSync(\'./src\') && fs.existsSync(\'./src/lambdas\')) {');
+
   code.line('var lambdaDir = fs.readdirSync(\'./src/lambdas\');');
 
   code.line('const slsFile = fs.readFileSync(\'./serverless.yml\', {encoding: \'utf8\'});');
@@ -65,5 +75,6 @@ export function readmeScript(project: Project) {
   code.close('}');
   code.close('}');
 
+  code.close('}');
   //code.line('console.log(\'\');');
 }

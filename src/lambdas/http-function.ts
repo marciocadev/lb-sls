@@ -53,7 +53,7 @@ export class HttpFunction extends Function {
 
   public configYaml(project: Project) {
     if (existsSync(`${this.path}/config.yml`)) {
-      console.warn(`👎 \x1b[4m\x1b[31mbuild >> config.yml\x1b[0m | a configuração do lambda \x1b[1m\x1b[33m${this.name}\x1b[0m já foi criada`);
+      console.warn(`🚫 \x1b[4m\x1b[31mbuild >> config.yml\x1b[0m | a configuração do lambda \x1b[1m\x1b[33m${this.name}\x1b[0m já foi criada`);
       return;
     }
     console.log(`👾 \x1b[4mbuild >> config.yml\x1b[0m | criando a configurando do lambda \x1b[1m\x1b[33m${this.name}\x1b[0m`);
@@ -121,12 +121,12 @@ export class HttpFunction extends Function {
       committed: true,
       lines: fileContent,
     });
-    console.log(`🏆 \x1b[4m\x1b[33mbuild >> config.yml\x1b[0m | a configuração do lambda \x1b[1m\x1b[33m${this.name}\x1b[0m foi criada com sucesso`);
+    console.log(`👾 \x1b[4mbuild >> config.yml\x1b[0m | a configuração do lambda \x1b[1m\x1b[33m${this.name}\x1b[0m foi criada com sucesso`);
   }
 
   public sampleCode(project: Project) {
     if (existsSync(`${this.path}/index.ts`)) {
-      console.warn(`👎 \x1b[4m\x1b[31mbuild >> index.ts\x1b[0m | o lambda \x1b[1m\x1b[33m${this.name}\x1b[0m já foi criado`);
+      console.warn(`🚫 \x1b[4m\x1b[31mbuild >> index.ts\x1b[0m | o lambda \x1b[1m\x1b[33m${this.name}\x1b[0m já foi criado`);
       return;
     }
     console.log(`👾 \x1b[4mbuild >> index.ts\x1b[0m | criando o lambda \x1b[1m\x1b[33m${this.name}\x1b[0m`);
@@ -158,17 +158,17 @@ export class HttpFunction extends Function {
     code.close('}');
     code.close('}');
 
-    console.log(`🏆 \x1b[4m\x1b[33mbuild >> index.ts\x1b[0m | o lambda \x1b[1m\x1b[33m${this.name}\x1b[0m foi criado com sucesso`);
+    console.log(`👾 \x1b[4mbuild >> index.ts\x1b[0m | o lambda \x1b[1m\x1b[33m${this.name}\x1b[0m foi criado com sucesso`);
   }
 
   public appendLambdaToServerlessYaml() {
     const data = readFileSync('serverless.yml');
     if (data.indexOf(`- \${file(${this.path}/config.yml)}`) > -1) {
-      console.warn(`👎 \x1b[4m\x1b[31mupdate >> serverless.yml\x1b[0m | o lambda \x1b[1m\x1b[33m${this.name}\x1b[0m já foi inserido no serverless.yml`);
+      console.warn(`🚫 \x1b[4m\x1b[31mupdate >> serverless.yml\x1b[0m | o lambda \x1b[1m\x1b[33m${this.name}\x1b[0m já foi inserido no serverless.yml`);
       // console.error('💀 \x1b[4m\x1b[31merror\x1b[0m | lambda já inserido no serverless.yml');
       return;
     }
-    console.log(`👉 \x1b[4mupdate >> serverless.yml\x1b[0m | inserindo o lambda \x1b[1m\x1b[33m${this.name}\x1b[0m no serverless.yml`);
+    console.log(`👾 \x1b[4mupdate >> serverless.yml\x1b[0m | inserindo o lambda \x1b[1m\x1b[33m${this.name}\x1b[0m no serverless.yml`);
     let initialData, middleData, finalData;
     const posFunctions = data.indexOf('functions:');
     if (posFunctions > -1) {
@@ -183,6 +183,6 @@ export class HttpFunction extends Function {
     }
     const newData = [initialData, middleData, finalData].join('\n');
     writeFileSync('serverless.yml', newData);
-    console.log(`🏆 \x1b[4m\x1b[33mupdate >> serverless.yml\x1b[0m | lambda \x1b[1m\x1b[33m${this.name}\x1b[0m inserido com sucesso`);
+    console.log(`👾 \x1b[4mupdate >> serverless.yml\x1b[0m | lambda \x1b[1m\x1b[33m${this.name}\x1b[0m inserido com sucesso`);
   }
 }
