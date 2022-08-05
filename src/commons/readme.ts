@@ -26,13 +26,10 @@ export function readmeFile(name: string): string {
 export function readmeScript(project: Project) {
   const code = new SourceCode(project, 'scripts/readme-projects.js', {
     indent: 2,
+    readonly: false,
   });
 
   code.line('var fs = require(\'fs\');');
-
-  code.open('if (fs.existsSync(\'./src\') && fs.existsSync(\'./src/lambdas\')) {');
-
-  code.line('var lambdaDir = fs.readdirSync(\'./src/lambdas\');');
 
   code.line('const slsFile = fs.readFileSync(\'./serverless.yml\', {encoding: \'utf8\'});');
   code.line('const splitSlsFile = slsFile.split(/\\r?\\n/);');
@@ -48,6 +45,8 @@ export function readmeScript(project: Project) {
   code.close('}');
   code.close('}');
 
+  code.open('if (fs.existsSync(\'./src\') && fs.existsSync(\'./src/lambdas\')) {');
+  code.line('var lambdaDir = fs.readdirSync(\'./src/lambdas\');');
   code.line('console.log(\'## Lambdas\');');
   code.line('console.log(\'\');');
   code.open('for (var dir of lambdaDir) {');
