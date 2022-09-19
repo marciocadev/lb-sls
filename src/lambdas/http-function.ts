@@ -147,6 +147,7 @@ export class HttpFunction extends Function {
 
     code.line('import { APIGatewayProxyEvent, Context, APIGatewayProxyEventPathParameters, APIGatewayProxyEventQueryStringParameters } from \'aws-lambda\';');
     code.line('import { Logger } from \'@aws-lambda-powertools/logger\';');
+    code.line('import \'source-map-support/register\';');
     code.line('');
     code.line(`const logger = new Logger({ logLevel: \'INFO\', serviceName: \'${project.name}\' });`);
     code.line('');
