@@ -41,6 +41,7 @@ export class LBSls extends TypeScriptProject {
     this.addDeps('@types/aws-lambda');
     // this.addDeps('@middy/core');
     this.addDeps('@aws-lambda-powertools/logger');
+    this.addDeps('source-map-support');
 
     readmeScript(this);
 
