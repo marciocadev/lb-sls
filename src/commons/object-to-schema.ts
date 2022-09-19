@@ -1,7 +1,5 @@
 export function objectToArray(obj: {[key: string]: any}) {
-  let schema: {[key:string]: any} = {
-    $schema: 'http://json-schema.org/draft-04/schema#',
-  };
+  let schema: {[key:string]: any} = {};
   schema.type = 'array';
   schema.items = {};
   // schema.$schema = 'http://json-schema.org/draft-04/schema#';
@@ -22,7 +20,9 @@ export function objectToArray(obj: {[key: string]: any}) {
 }
 
 export function objectToSchema(obj: {[key:string]: any}) {
-  let schema: {[key:string]: any} = {};
+  let schema: {[key:string]: any} = {
+    $schema: 'http://json-schema.org/draft-04/schema#',
+  };
   schema.type = 'object';
   schema.properties = {};
   Object.keys(obj).forEach(function(key) {
