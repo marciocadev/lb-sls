@@ -1,8 +1,10 @@
 export function objectToArray(obj: {[key: string]: any}) {
-  let schema: {[key:string]: any} = {};
+  let schema: {[key:string]: any} = {
+    $schema: 'http://json-schema.org/draft-04/schema#',
+  };
   schema.type = 'array';
   schema.items = {};
-  schema.$schema = 'http://json-schema.org/draft-04/schema#';
+  // schema.$schema = 'http://json-schema.org/draft-04/schema#';
   if (Number.isInteger(obj)) {
     schema.items = { type: 'integer' };
   } else if (typeof obj === 'string') {
