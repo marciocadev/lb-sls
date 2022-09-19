@@ -39,7 +39,7 @@ export class HttpFunction extends Function {
   schemaJson(project: Project) {
     let schema: {[key:string]: any} = {};
     schema = objectToSchema(this.schemaObject as {[key:string]: any});
-    schema.schema = 'http://json-schema.org/draft-04/schema#';
+    schema."$schema" = 'http://json-schema.org/draft-04/schema#';
     if (this.requiredKeys) {
       schema.required = this.requiredKeys;
     }
