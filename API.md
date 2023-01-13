@@ -910,6 +910,7 @@ public addHttpFunction(props: HttpLambdaProps): void
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#lb-sls.LBSls.property.buildTask">buildTask</a></code> | <code>projen.Task</code> | *No description.* |
+| <code><a href="#lb-sls.LBSls.property.commitGenerated">commitGenerated</a></code> | <code>boolean</code> | Whether to commit the managed files by default. |
 | <code><a href="#lb-sls.LBSls.property.compileTask">compileTask</a></code> | <code>projen.Task</code> | *No description.* |
 | <code><a href="#lb-sls.LBSls.property.components">components</a></code> | <code>projen.Component[]</code> | Returns all the components within this project. |
 | <code><a href="#lb-sls.LBSls.property.deps">deps</a></code> | <code>projen.Dependencies</code> | Project dependencies. |
@@ -977,6 +978,18 @@ public readonly buildTask: Task;
 ```
 
 - *Type:* projen.Task
+
+---
+
+##### `commitGenerated`<sup>Required</sup> <a name="commitGenerated" id="lb-sls.LBSls.property.commitGenerated"></a>
+
+```typescript
+public readonly commitGenerated: boolean;
+```
+
+- *Type:* boolean
+
+Whether to commit the managed files by default.
 
 ---
 
