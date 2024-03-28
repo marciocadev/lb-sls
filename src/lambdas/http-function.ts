@@ -1,7 +1,7 @@
 import { existsSync, readFileSync, writeFileSync } from 'fs';
 import { JsonFile, Project, SourceCode, TextFile } from 'projen';
-import { convertFunctionName, objectToSchema } from '../commons';
 import { Function, FunctionProps } from './function';
+import { convertFunctionName, objectToSchema } from '../commons';
 
 export enum HttpMethodType {
   GET, POST, PUT, DELETE, PATCH
